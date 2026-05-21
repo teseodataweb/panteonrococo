@@ -175,9 +175,9 @@ body.home-five-bg {
     text-decoration: none;
 }
 .brand-logo-img {
-    height: 40px;
+    height: 64px;
     width: auto;
-    max-width: 120px;
+    max-width: 180px;
     display: block;
     filter: drop-shadow(0 4px 12px rgba(0,0,0,0.45));
     transition: transform .25s ease;
@@ -202,7 +202,7 @@ body.home-five-bg {
     text-transform: uppercase;
 }
 @media (max-width: 575.98px) {
-    .brand-logo-img { height: 32px; }
+    .brand-logo-img { height: 48px; max-width: 140px; }
     .brand-event-2 { font-size: 0.7rem; padding: 0.25rem 0.5rem; letter-spacing: 2px; }
 }
 
@@ -366,52 +366,77 @@ body.home-five-bg {
     background: rgba(255,255,255,0.03);
     border: 1px solid rgba(255,255,255,0.06);
     border-radius: 14px;
-    padding: 2.25rem 1.75rem;
+    padding: 2.75rem 1.75rem 2.25rem !important;
     transition: transform .3s ease, border-color .3s ease, box-shadow .3s ease;
     position: relative;
-    overflow: hidden;
+    overflow: visible !important;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
 }
 .service-five-card:hover {
     transform: translateY(-8px);
     border-color: rgba(215, 41, 42, 0.5);
     box-shadow: 0 24px 60px rgba(0,0,0,0.4), 0 0 0 1px rgba(215, 41, 42, 0.3);
+    background: rgba(255,255,255,0.03);
 }
 .service-five-card-icon-glyph {
-    font-size: 4rem;
+    font-size: clamp(3.5rem, 7vw, 5rem);
     background: linear-gradient(135deg, #D7292A 0%, #1A3A6B 100%);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
     display: inline-block;
+    line-height: 1;
 }
 .service-five-card-title {
     font-family: var(--font-heading, "Oswald", sans-serif);
-    font-size: 1.5rem;
+    font-size: clamp(1.4rem, 2.2vw, 1.75rem);
     letter-spacing: 1.5px;
     text-transform: uppercase;
     color: #fff !important;
-    margin: 1rem 0 .5rem;
+    margin: 1.25rem 0 .75rem;
 }
 .service-five-card-description {
-    color: rgba(255,255,255,0.75) !important;
-    line-height: 1.6;
+    color: rgba(255,255,255,0.78) !important;
+    line-height: 1.65;
+    font-size: clamp(1rem, 1.4vw, 1.125rem);
+    margin-bottom: 1.25rem;
+    flex-grow: 1;
 }
 .service-five-card-button {
-    display: inline-flex;
-    width: 44px;
-    height: 44px;
+    position: static !important;
+    display: inline-flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    transform: none !important;
+    bottom: auto !important;
+    left: auto !important;
+    width: 52px !important;
+    height: 52px !important;
     align-items: center;
     justify-content: center;
-    background: #D7292A;
+    background: #D7292A !important;
     color: #fff !important;
     border-radius: 50%;
-    margin-top: 1rem;
+    margin: .25rem auto 0 !important;
+    font-size: 1.5rem;
     transition: background .2s ease, transform .2s ease;
 }
 .service-five-card-button:hover {
-    background: #1A3A6B;
-    transform: translateX(4px);
+    background: #1A3A6B !important;
+    transform: scale(1.08) !important;
     color: #fff !important;
+}
+@media (max-width: 991.98px) {
+    .service-five-card { padding: 2.25rem 1.5rem 2rem !important; }
+    .service-five-card-button { width: 48px !important; height: 48px !important; font-size: 1.35rem; }
+}
+@media (max-width: 575.98px) {
+    .service-five-card { padding: 2rem 1.25rem 1.75rem !important; }
+    .service-five-card-button { width: 46px !important; height: 46px !important; }
 }
 
 /* ============ MARQUEE ============ */
