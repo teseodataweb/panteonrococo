@@ -721,6 +721,218 @@ body.home-five-bg {
     .venue-map-wrap, .venue-map-wrap iframe { min-height: 360px; height: 360px; }
 }
 
+/* ============ REGISTRO / FORMULARIO ============ */
+.register-event-area {
+    background:
+        radial-gradient(circle at 15% 20%, rgba(215, 41, 42, 0.08), transparent 45%),
+        radial-gradient(circle at 85% 80%, rgba(26, 58, 107, 0.12), transparent 45%),
+        linear-gradient(180deg, #15161C 0%, #0F0F12 100%);
+}
+.event-register-form {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 16px;
+    padding: 2.5rem 2rem;
+    backdrop-filter: blur(6px);
+}
+.form-label-event {
+    color: #fff;
+    font-weight: 600;
+    font-size: 0.95rem;
+    margin-bottom: 0.45rem;
+    display: block;
+    font-family: var(--font-heading, "Oswald", sans-serif);
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+.form-control-event {
+    width: 100%;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.14);
+    color: #fff;
+    padding: 0.85rem 1.1rem;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-family: inherit;
+    transition: border-color .2s ease, background .2s ease, box-shadow .2s ease;
+}
+.form-control-event::placeholder { color: rgba(255,255,255,0.4); }
+.form-control-event:focus {
+    outline: none;
+    border-color: #D7292A;
+    background: rgba(255,255,255,0.06);
+    box-shadow: 0 0 0 3px rgba(215, 41, 42, 0.18);
+}
+.form-control-event.is-invalid,
+.event-register-form.was-validated .form-control-event:invalid {
+    border-color: #ff6b6b;
+    box-shadow: 0 0 0 3px rgba(255, 107, 107, 0.15);
+}
+.form-check-event {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.65rem;
+    color: rgba(255,255,255,0.85);
+    font-size: 0.95rem;
+    cursor: pointer;
+    line-height: 1.55;
+    margin: 0;
+}
+.form-check-event input[type="checkbox"] {
+    margin-top: 4px;
+    width: 18px;
+    height: 18px;
+    accent-color: #D7292A;
+    flex-shrink: 0;
+    cursor: pointer;
+}
+.form-link {
+    color: #D7292A;
+    text-decoration: underline;
+}
+.form-link:hover { color: #fff; }
+.form-submit-btn {
+    min-width: 220px;
+    justify-content: center;
+}
+.form-submit-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+.form-event-status {
+    text-align: center;
+    font-size: 1rem;
+    color: rgba(255,255,255,0.85);
+    min-height: 1.5em;
+}
+.form-event-status.success { color: #4dd089; font-weight: 600; }
+.form-event-status.error { color: #ff6b6b; font-weight: 600; }
+@media (max-width: 575.98px) {
+    .event-register-form { padding: 1.75rem 1.25rem; }
+    .form-submit-btn { min-width: 100%; }
+}
+
+/* ============ POWERED BY (créditos de desarrollo) ============ */
+.footer-powered-by {
+    background: #000;
+    border-top: 1px solid rgba(255,255,255,0.06);
+    padding: 0.85rem 0;
+}
+.powered-by-text {
+    color: rgba(255,255,255,0.5);
+    font-size: 0.82rem;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    font-family: var(--font-heading, "Oswald", sans-serif);
+    font-weight: 500;
+}
+.powered-by-link {
+    color: #D7292A;
+    text-decoration: none;
+    font-weight: 700;
+    margin-left: 0.35rem;
+    transition: color .2s ease;
+}
+.powered-by-link:hover { color: #fff; }
+
+/* ============ PÁGINAS LEGALES (privacidad, términos) ============ */
+.legal-page {
+    background:
+        radial-gradient(circle at 15% 10%, rgba(215, 41, 42, 0.06), transparent 45%),
+        radial-gradient(circle at 85% 90%, rgba(26, 58, 107, 0.08), transparent 45%),
+        #0F0F12;
+    min-height: 100vh;
+}
+.legal-header {
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    padding: 1.25rem 0;
+}
+.legal-back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: rgba(255,255,255,0.75);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color .2s ease;
+}
+.legal-back-link:hover { color: #fff; }
+.legal-content {
+    color: rgba(255,255,255,0.85);
+    line-height: 1.75;
+    font-size: 1.05rem;
+    padding: 4rem 0 5rem;
+}
+.legal-content h1 {
+    font-family: var(--font-heading, "Oswald", sans-serif);
+    color: #fff;
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+.legal-content .legal-subtitle {
+    color: #D7292A;
+    font-family: var(--font-heading, "Oswald", sans-serif);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+}
+.legal-content .legal-meta {
+    color: rgba(255,255,255,0.55);
+    font-size: 0.9rem;
+    margin-bottom: 2.5rem;
+}
+.legal-content h2 {
+    font-family: var(--font-heading, "Oswald", sans-serif);
+    color: #fff;
+    font-size: clamp(1.4rem, 2.5vw, 1.85rem);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid rgba(215, 41, 42, 0.4);
+}
+.legal-content h3 {
+    color: #fff;
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-top: 1.5rem;
+    margin-bottom: 0.75rem;
+}
+.legal-content p { margin-bottom: 1rem; }
+.legal-content ul, .legal-content ol {
+    margin: 0 0 1.25rem;
+    padding-left: 1.5rem;
+}
+.legal-content li { margin-bottom: 0.5rem; }
+.legal-content a {
+    color: #D7292A;
+    text-decoration: underline;
+}
+.legal-content a:hover { color: #fff; }
+.legal-content strong { color: #fff; }
+.legal-footer {
+    border-top: 1px solid rgba(255,255,255,0.08);
+    padding: 1.5rem 0;
+    color: rgba(255,255,255,0.55);
+    font-size: 0.9rem;
+    text-align: center;
+}
+.legal-footer a {
+    color: rgba(255,255,255,0.75);
+    text-decoration: none;
+    margin: 0 0.75rem;
+}
+.legal-footer a:hover { color: #fff; text-decoration: underline; }
+@media (max-width: 575.98px) {
+    .legal-content { padding: 2.5rem 0 3.5rem; font-size: 1rem; }
+}
+
 /* Print fallback */
 @media print {
     .preloader, .progress-wrap, #magic-cursor, .cursor, .dot, .mobile-menu, .header { display: none !important; }

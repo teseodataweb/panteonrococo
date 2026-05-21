@@ -150,4 +150,53 @@
         });
     }
 
+    // ============ EVENT REGISTRATION FORM (Web3Forms) ============
+    var regForm = document.getElementById('event-register-form');
+    if (regForm) {
+        var statusEl = document.getElementById('form-event-status');
+        var submitBtn = regForm.querySelector('button[type="submit"]');
+        var phoneInput = regForm.querySelector('[name="telefono"]');
+        if (phoneInput) {
+            phoneInput.addEventListener('input', function () {
+                this.value = this.value.replace(/\D/g, '').slice(0, 10);
+            });
+        }
+        regForm.addEventListener('submit', function (e) {
+            e.preventDefault();
+            regForm.classList.add('was-validated');
+            if (!regForm.checkValidity()) {
+                statusEl.className = 'form-event-status mt-4 error';
+                statusEl.textContent = 'Revisa los campos requeridos.';
+                return;
+            }
+            var data = new FormData(regForm);
+            statusEl.className = 'form-event-status mt-4';
+            statusEl.textContent = 'Enviando…';
+            if (submitBtn) submitBtn.disabled = true;
+            fetch('https://api.web3forms.com/submit', { method: 'POST', body: data })
+                .then(function (res) { return res.json(); })
+                .then(function (json) {
+                    if (json && json.success) {
+                        statusEl.classList.add('success');
+                        statusEl.textContent = '¡Listo! Te enviaremos información del evento por WhatsApp y correo.';
+                        regForm.reset();
+                        regForm.classList.remove('was-validated');
+                        try { if (typeof fbq === 'function') fbq('track', 'Lead'); } catch (err) {}
+                        try { if (typeof gtag === 'function') gtag('event', 'generate_lead', { event_category: 'registro', event_label: 'evento_neza' }); } catch (err) {}
+                        try { if (typeof ttq !== 'undefined' && ttq && typeof ttq.track === 'function') ttq.track('SubmitForm'); } catch (err) {}
+                    } else {
+                        statusEl.classList.add('error');
+                        statusEl.textContent = (json && json.message) || 'No pudimos enviar tu registro. Inténtalo de nuevo.';
+                    }
+                })
+                .catch(function () {
+                    statusEl.classList.add('error');
+                    statusEl.textContent = 'Error de conexión. Inténtalo de nuevo en un momento.';
+                })
+                .then(function () {
+                    if (submitBtn) submitBtn.disabled = false;
+                });
+        });
+    }
+
 })();

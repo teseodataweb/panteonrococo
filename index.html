@@ -88,6 +88,23 @@
     }
     </script>
 
+    <!-- Structured data WebSite + creator (Teseo Data Lab) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "url": "https://panteonrococo.vercel.app/",
+      "name": "Panteón Rococó en Neza",
+      "inLanguage": "es-MX",
+      "creator": {
+        "@type": "Organization",
+        "name": "Teseo Data Lab",
+        "url": "https://teseodata.com",
+        "slogan": "Powered by Teseo Data Lab"
+      }
+    }
+    </script>
+
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-DTKXH0T4ZB"></script>
     <script>
@@ -187,6 +204,9 @@
                         <li class="nav-menu__item">
                             <a href="#faq" class="nav-menu__link tw-pe-4 text--white hover-text-main-600 tw-py-5 fw-medium w-100">FAQ</a>
                         </li>
+                        <li class="nav-menu__item">
+                            <a href="#registro" class="nav-menu__link tw-pe-4 text--white hover-text-main-600 tw-py-5 fw-medium w-100">Registro</a>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -222,6 +242,9 @@
                             </li>
                             <li class="nav-menu__item">
                                 <a href="#faq" class="nav-menu__link tw-pe-4 text--white hover-text-main-600 tw-py-5 fw-medium w-100">FAQ</a>
+                            </li>
+                            <li class="nav-menu__item">
+                                <a href="#registro" class="nav-menu__link tw-pe-4 text--white hover-text-main-600 tw-py-5 fw-medium w-100">Registro</a>
                             </li>
                         </ul>
                     </div>
@@ -769,6 +792,75 @@
             </div>
         </section>
 
+        <!-- ==================== REGISTRO / FORMULARIO ==================== -->
+        <section class="register-event-area py-120 position-relative z-1 overflow-hidden" id="registro">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <div class="section-wrapper text-center" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="100">
+                            <h4 class="section-sub-title text-main-two-600 text-center tw-char-animation">Más información</h4>
+                            <h2 class="section-title display-five text--white text-center mb-3 tw-char-animation">
+                                Recibe información exclusiva del evento
+                            </h2>
+                            <p class="text--white-70 text-center mb-0">
+                                Horarios actualizados, cambios de última hora, accesos especiales y recomendaciones directo a tu celular. ¡Regístrate gratis!
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row justify-content-center mt-5">
+                    <div class="col-lg-8">
+                        <form id="event-register-form" class="event-register-form" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200" novalidate>
+                            <input type="hidden" name="access_key" value="87f414e7-0dc9-4c5d-a670-58db34064d47">
+                            <input type="hidden" name="subject" value="Nuevo registro - Panteón Rococó Neza 2026">
+                            <input type="hidden" name="from_name" value="Panteón Rococó Neza 2026">
+                            <input type="checkbox" name="botcheck" class="d-none" tabindex="-1" autocomplete="off" style="display:none !important">
+
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <label class="form-label-event" for="reg-nombre">Tu nombre completo *</label>
+                                    <input type="text" id="reg-nombre" name="nombre" class="form-control-event" required minlength="3" placeholder="Nombre y apellido" autocomplete="name">
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label-event" for="reg-email">Correo electrónico *</label>
+                                    <input type="email" id="reg-email" name="email" class="form-control-event" required placeholder="tu@correo.com" autocomplete="email">
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label-event" for="reg-telefono">Teléfono a 10 dígitos (WhatsApp) *</label>
+                                    <input type="tel" id="reg-telefono" name="telefono" class="form-control-event" required pattern="[0-9]{10}" maxlength="10" inputmode="numeric" placeholder="5555555555" autocomplete="tel-national">
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label-event" for="reg-ciudad">¿De dónde vienes? *</label>
+                                    <input type="text" id="reg-ciudad" name="ciudad" class="form-control-event" required placeholder="Ciudad o municipio">
+                                </div>
+                                <div class="col-12">
+                                    <label class="form-check-event">
+                                        <input type="checkbox" name="acepto" value="Sí" required>
+                                        <span>Acepto los <a href="terminos.html" target="_blank" rel="noopener" class="form-link">Términos y Condiciones</a> y el <a href="privacidad.html" target="_blank" rel="noopener" class="form-link">Aviso de Privacidad</a> *</span>
+                                    </label>
+                                </div>
+                                <div class="col-12">
+                                    <label class="form-check-event">
+                                        <input type="checkbox" name="info" value="Sí" checked>
+                                        <span>Quiero recibir información del evento</span>
+                                    </label>
+                                </div>
+                                <div class="col-12 text-center mt-3">
+                                    <button type="submit" class="theme-btn-main bg-main-two-600 text-heading tw-hover-btn form-submit-btn">
+                                        <span class="theme-btn-text">Registrarme</span>
+                                        <span class="theme-btn-icon"><i class="ph-fill ph-paper-plane-tilt"></i></span>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="form-event-status mt-4" id="form-event-status" role="status" aria-live="polite"></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- ==================== FOOTER ==================== -->
         <footer class="footer-five position-relative z-1 overflow-hidden">
             <div class="py-120 border-bottom border-neutral-700 position-relative">
@@ -822,6 +914,9 @@
                                                 <li><a href="#lineup" class="footer-quick-links-item tw-display-inline-center tw-gap-2 text--white hover-text-main-two-600"><span class="icon tw-display-inline-center"><i class="ph ph-caret-double-right"></i></span>Horario</a></li>
                                                 <li><a href="#venue" class="footer-quick-links-item tw-display-inline-center tw-gap-2 text--white hover-text-main-two-600"><span class="icon tw-display-inline-center"><i class="ph ph-caret-double-right"></i></span>Cómo Llegar</a></li>
                                                 <li><a href="#faq" class="footer-quick-links-item tw-display-inline-center tw-gap-2 text--white hover-text-main-two-600"><span class="icon tw-display-inline-center"><i class="ph ph-caret-double-right"></i></span>Preguntas Frecuentes</a></li>
+                                                <li><a href="#registro" class="footer-quick-links-item tw-display-inline-center tw-gap-2 text--white hover-text-main-two-600"><span class="icon tw-display-inline-center"><i class="ph ph-caret-double-right"></i></span>Registro</a></li>
+                                                <li><a href="privacidad.html" class="footer-quick-links-item tw-display-inline-center tw-gap-2 text--white hover-text-main-two-600"><span class="icon tw-display-inline-center"><i class="ph ph-caret-double-right"></i></span>Aviso de Privacidad</a></li>
+                                                <li><a href="terminos.html" class="footer-quick-links-item tw-display-inline-center tw-gap-2 text--white hover-text-main-two-600"><span class="icon tw-display-inline-center"><i class="ph ph-caret-double-right"></i></span>Términos y Condiciones</a></li>
                                             </ul>
                                         </div>
                                     </div>
@@ -831,9 +926,9 @@
                                                 Síguelos
                                             </h4>
                                             <ul class="footer-quick-links-list d-flex flex-column tw-gap-4">
-                                                <li><a href="https://www.instagram.com/panteonrococo" target="_blank" rel="noopener" class="footer-quick-links-item tw-display-inline-center tw-gap-2 text--white hover-text-main-two-600"><span class="icon tw-display-inline-center"><i class="ph-fill ph-instagram-logo"></i></span>Instagram</a></li>
+                                                <li><a href="https://www.instagram.com/rococopix" target="_blank" rel="noopener" class="footer-quick-links-item tw-display-inline-center tw-gap-2 text--white hover-text-main-two-600"><span class="icon tw-display-inline-center"><i class="ph-fill ph-instagram-logo"></i></span>Instagram</a></li>
                                                 <li><a href="https://www.facebook.com/panteonrococo" target="_blank" rel="noopener" class="footer-quick-links-item tw-display-inline-center tw-gap-2 text--white hover-text-main-two-600"><span class="icon tw-display-inline-center"><i class="ph-fill ph-facebook-logo"></i></span>Facebook</a></li>
-                                                <li><a href="https://www.tiktok.com/@panteonrococo" target="_blank" rel="noopener" class="footer-quick-links-item tw-display-inline-center tw-gap-2 text--white hover-text-main-two-600"><span class="icon tw-display-inline-center"><i class="ph-fill ph-tiktok-logo"></i></span>TikTok</a></li>
+                                                <li><a href="https://www.tiktok.com/@panteonrococotiktok" target="_blank" rel="noopener" class="footer-quick-links-item tw-display-inline-center tw-gap-2 text--white hover-text-main-two-600"><span class="icon tw-display-inline-center"><i class="ph-fill ph-tiktok-logo"></i></span>TikTok</a></li>
                                             </ul>
                                         </div>
                                     </div>
@@ -854,12 +949,21 @@
                         </div>
                         <div>
                             <ul class="footer-social d-flex align-items-center tw-gap-4">
-                                <li><a href="https://www.instagram.com/panteonrococo" target="_blank" rel="noopener" aria-label="Instagram" class="tw-w-10 tw-h-10 lh-1 tw-display-inline-center text--white bg--white-10 rounded-circle hover-bg--white hover-text-heading"><i class="ph-bold ph-instagram-logo"></i></a></li>
+                                <li><a href="https://www.instagram.com/rococopix" target="_blank" rel="noopener" aria-label="Instagram" class="tw-w-10 tw-h-10 lh-1 tw-display-inline-center text--white bg--white-10 rounded-circle hover-bg--white hover-text-heading"><i class="ph-bold ph-instagram-logo"></i></a></li>
                                 <li><a href="https://www.facebook.com/panteonrococo" target="_blank" rel="noopener" aria-label="Facebook" class="tw-w-10 tw-h-10 lh-1 tw-display-inline-center text--white bg--white-10 rounded-circle hover-bg--white hover-text-heading"><i class="ph-bold ph-facebook-logo"></i></a></li>
-                                <li><a href="https://www.tiktok.com/@panteonrococo" target="_blank" rel="noopener" aria-label="TikTok" class="tw-w-10 tw-h-10 lh-1 tw-display-inline-center text--white bg--white-10 rounded-circle hover-bg--white hover-text-heading"><i class="ph-bold ph-tiktok-logo"></i></a></li>
+                                <li><a href="https://www.tiktok.com/@panteonrococotiktok" target="_blank" rel="noopener" aria-label="TikTok" class="tw-w-10 tw-h-10 lh-1 tw-display-inline-center text--white bg--white-10 rounded-circle hover-bg--white hover-text-heading"><i class="ph-bold ph-tiktok-logo"></i></a></li>
                             </ul>
                         </div>
                     </div>
+                </div>
+            </div>
+
+            <div class="footer-powered-by">
+                <div class="container text-center">
+                    <p class="powered-by-text mb-0">
+                        Powered by
+                        <a href="https://teseodata.com" target="_blank" rel="noopener" class="powered-by-link">Teseo Data Lab</a>
+                    </p>
                 </div>
             </div>
         </footer>
