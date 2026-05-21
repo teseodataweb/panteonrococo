@@ -1,0 +1,103 @@
+/* =========================================================
+   Panteón Rococó · Neza · 30 Mayo 2026
+   Vanilla JS — countdown, navbar, mobile menu, FAQ
+   ========================================================= */
+
+(function () {
+    'use strict';
+
+    // ============ COUNTDOWN ============
+    // Target: Saturday May 30, 2026 at 20:30 Mexico City time (UTC-6).
+    // ISO 8601 with explicit offset guarantees correctness regardless of viewer timezone.
+    const targetDate = new Date('2026-05-30T20:30:00-06:00').getTime();
+
+    const cdNodes = {
+        days:    document.querySelector('[data-cd="days"]'),
+        hours:   document.querySelector('[data-cd="hours"]'),
+        minutes: document.querySelector('[data-cd="minutes"]'),
+        seconds: document.querySelector('[data-cd="seconds"]')
+    };
+
+    function pad(n) { return n < 10 ? '0' + n : '' + n; }
+
+    function updateCountdown() {
+        const now = Date.now();
+        const diff = targetDate - now;
+
+        if (diff <= 0) {
+            if (cdNodes.days)    cdNodes.days.textContent    = '00';
+            if (cdNodes.hours)   cdNodes.hours.textContent   = '00';
+            if (cdNodes.minutes) cdNodes.minutes.textContent = '00';
+            if (cdNodes.seconds) cdNodes.seconds.textContent = '00';
+            const cdEl = document.getElementById('countdown');
+            if (cdEl && !cdEl.classList.contains('finished')) {
+                cdEl.classList.add('finished');
+                cdEl.setAttribute('aria-label', '¡Hoy es el día!');
+            }
+            return false;
+        }
+
+        const days    = Math.floor(diff / (1000 * 60 * 60 * 24));
+        const hours   = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+        if (cdNodes.days)    cdNodes.days.textContent    = pad(days);
+        if (cdNodes.hours)   cdNodes.hours.textContent   = pad(hours);
+        if (cdNodes.minutes) cdNodes.minutes.textContent = pad(minutes);
+        if (cdNodes.seconds) cdNodes.seconds.textContent = pad(seconds);
+        return true;
+    }
+
+    if (cdNodes.days) {
+        updateCountdown();
+        const cdInterval = setInterval(function () {
+            if (updateCountdown() === false) clearInterval(cdInterval);
+        }, 1000);
+    }
+
+    // ============ NAVBAR SCROLL ============
+    const siteNav = document.getElementById('siteNav');
+    if (siteNav) {
+        const onScroll = function () {
+            if (window.scrollY > 40) siteNav.classList.add('scrolled');
+            else siteNav.classList.remove('scrolled');
+        };
+        window.addEventListener('scroll', onScroll, { passive: true });
+        onScroll();
+    }
+
+    // ============ MOBILE NAV TOGGLE ============
+    const navToggle = document.getElementById('navToggle');
+    const navLinks  = document.getElementById('navLinks');
+    if (navToggle && navLinks) {
+        navToggle.addEventListener('click', function () {
+            const isOpen = navLinks.classList.toggle('open');
+            navToggle.classList.toggle('active', isOpen);
+            navToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+        });
+        // close on link click (mobile)
+        navLinks.querySelectorAll('a').forEach(function (link) {
+            link.addEventListener('click', function () {
+                if (navLinks.classList.contains('open')) {
+                    navLinks.classList.remove('open');
+                    navToggle.classList.remove('active');
+                    navToggle.setAttribute('aria-expanded', 'false');
+                }
+            });
+        });
+    }
+
+    // ============ FAQ — close siblings on open (single-open behavior) ============
+    const faqItems = document.querySelectorAll('.faq-item');
+    faqItems.forEach(function (item) {
+        item.addEventListener('toggle', function () {
+            if (item.open) {
+                faqItems.forEach(function (other) {
+                    if (other !== item && other.open) other.open = false;
+                });
+            }
+        });
+    });
+
+})();

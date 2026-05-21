@@ -1,0 +1,701 @@
+/* =========================================================
+   Panteón Rococó · Neza · 30 Mayo 2026
+   Override de la plantilla Eventro — paleta y tipografía del cartel
+   ========================================================= */
+
+/* === Paleta extraída del cartel ===
+   Rojo principal:    #D7292A → hsl(359, 68%, 51%)
+   Azul secundario:   #1A3A6B → hsl(215, 60%, 26%)
+   Negro carbón:      #0F0F12
+   Blanco textura:    #F5F4F0
+   Acento dorado:     #E8B14E (opcional para acentos cálidos)
+*/
+
+/* === Tipografía alineada al cartel ===
+   - Bungee Inline → palabras de impacto (NEZA-feel) en hero/accents
+   - Anton         → headings condensados (replica "30 MAYO / 20:30 HRS / DEPORTIVO CIUDAD JARDÍN")
+   - Inter         → body / lectura
+*/
+:root {
+    --font-display: 'Bungee Inline', 'Bungee', Impact, sans-serif;
+    --font-display-solid: 'Bungee', Impact, sans-serif;
+    --font-heading: 'Anton', 'Oswald', 'Bebas Neue', Impact, sans-serif;
+    --font-body: 'Inter', 'Roboto', system-ui, -apple-system, sans-serif;
+}
+
+/* Body en Inter */
+body,
+body.home-five-bg {
+    font-family: var(--font-body) !important;
+    letter-spacing: 0.01em;
+}
+
+/* Bootstrap, párrafos, listas, etc — Inter */
+p, li, label, input, textarea, .accordion-body, .ticket-five-card-features-item-text,
+.service-five-card-description, .tab-item-description, .section-description,
+.copyright-text, .text--white-70, .text--white-80,
+.event-five-area-info-content p {
+    font-family: var(--font-body) !important;
+}
+
+/* === Headings condensados estilo cartel === */
+h1, h2, h3, h4, h5, h6,
+.banner-title, .section-title, .hero-title-event,
+.tab-item-title, .tab-item-speaker-name,
+.service-five-card-title, .ticket-five-card-name,
+.footer-four-widget-title, .footer-five-widget-title,
+.counter-text, .counter-title,
+.event-five-area-info-text,
+.day, .date,
+.faq-event-accordion .accordion-button,
+.brand-event-2,
+.maquee-title {
+    font-family: var(--font-heading) !important;
+    font-weight: 400 !important; /* Anton solo tiene 400 */
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+/* Anton no soporta diacríticos perfectamente en algunos navegadores antiguos: fallback */
+.anton-fallback {
+    font-family: 'Oswald', 'Bebas Neue', sans-serif !important;
+    font-weight: 700 !important;
+}
+
+/* === Hero title: BUNGEE INLINE para impacto NEZA-style === */
+.hero-title-event {
+    font-family: var(--font-display) !important;
+    font-weight: 400 !important;
+    font-size: clamp(1.6rem, 3.6vw, 2.8rem) !important;
+    letter-spacing: 0.02em !important;
+    line-height: 1.1 !important;
+    margin-bottom: 1rem !important;
+}
+.hero-title-event .text-main-two-600 {
+    font-family: var(--font-display) !important;
+    font-weight: 400 !important;
+    font-size: inherit !important;
+}
+
+/* Sub-título "Sábado 30 de Mayo": Inter Thin (200), pequeño y elegante */
+.banner-sub-title {
+    font-family: var(--font-body) !important;
+    font-style: normal !important;
+    font-weight: 200 !important;
+    font-size: clamp(0.95rem, 1.3vw, 1.2rem) !important;
+    line-height: 1.2 !important;
+    letter-spacing: 0.18em !important;
+    text-transform: uppercase !important;
+    margin-bottom: 0.75rem !important;
+    color: #E8B14E !important;
+}
+
+/* Section sub-titles (caption sobre cada sección): Anton small-caps feel */
+.section-sub-title {
+    font-family: var(--font-heading) !important;
+    font-style: normal !important;
+    font-weight: 400 !important;
+    letter-spacing: 0.25em !important;
+    text-transform: uppercase !important;
+    font-size: 0.95rem !important;
+}
+
+/* Counter (números del countdown): BUNGEE para que evoquen el "30 / 20:30" del cartel */
+.cd-value, .counter-title .cd-value {
+    font-family: var(--font-display-solid) !important;
+    font-weight: 400 !important;
+    letter-spacing: 0.02em !important;
+}
+.counter-text {
+    letter-spacing: 0.25em !important;
+}
+
+/* Schedule time labels (tipo "18:00 HRS"): Anton condensado, como el cartel */
+.tab-item-time {
+    font-family: var(--font-heading) !important;
+    font-weight: 400 !important;
+    letter-spacing: 0.12em !important;
+    font-size: 1.2rem !important;
+}
+
+/* Footer copyright menos pesado */
+.copyright-text {
+    letter-spacing: 0.04em;
+    text-transform: none !important;
+    font-family: var(--font-body) !important;
+}
+
+/* Maquee marquee: en lugar de caveat manuscrito, usar Bungee para impacto */
+.maquee-title {
+    font-family: var(--font-display-solid) !important;
+    font-style: normal !important;
+    font-weight: 400 !important;
+    letter-spacing: 0.05em !important;
+}
+
+:root {
+    /* main (rojo del cartel) — reemplaza el magenta original */
+    --main-hex: #D7292A;
+    --main-h: 359;
+    --main-s: 68%;
+    --main-l: 51%;
+    --main: var(--main-h) var(--main-s) var(--main-l);
+    --main-gradient: linear-gradient(90deg, #D7292A 0%, #7A1719 100%);
+    --main-gradient-two: linear-gradient(180deg, rgba(215, 41, 42, 0.85) 0%, rgba(215, 41, 42, 0) 100%);
+
+    /* main-two (acento cálido — crema/dorado para los subtítulos en font-caveat) */
+    --main-two-hex: #E8B14E;
+    --main-two-h: 41;
+    --main-two-s: 78%;
+    --main-two-l: 61%;
+    --main-two: var(--main-two-h) var(--main-two-s) var(--main-two-l);
+    --main-two-gradient: linear-gradient(180deg, rgba(232, 177, 78, 0.85) 0%, rgba(232, 177, 78, 0) 100%);
+
+    /* main-three (azul oscuro del cartel) */
+    --main-three-hex: #1A3A6B;
+    --main-three-h: 215;
+    --main-three-s: 60%;
+    --main-three-l: 26%;
+    --main-three: var(--main-three-h) var(--main-three-s) var(--main-three-l);
+    --main-three-gradient: linear-gradient(180deg, rgba(26, 58, 107, 0.85) 0%, rgba(26, 58, 107, 0) 100%);
+}
+
+/* Body / fondo general */
+body.home-five-bg {
+    background: #0F0F12;
+}
+
+/* ============ NAVBAR / BRAND ============ */
+.brand-event {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.85rem;
+    line-height: 1;
+    color: #fff;
+    text-decoration: none;
+}
+.brand-logo-img {
+    height: 40px;
+    width: auto;
+    max-width: 120px;
+    display: block;
+    filter: drop-shadow(0 4px 12px rgba(0,0,0,0.45));
+    transition: transform .25s ease;
+}
+.brand-event:hover .brand-logo-img { transform: scale(1.04); }
+.brand-event-2 {
+    font-family: var(--font-heading, "Oswald", "Bebas Neue", sans-serif);
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: #ffffff;
+    padding: 0.35rem 0.7rem;
+    background: rgba(215, 41, 42, 0.85);
+    border-radius: 4px;
+    line-height: 1;
+}
+.brand-text-mobile {
+    color: #fff;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+@media (max-width: 575.98px) {
+    .brand-logo-img { height: 32px; }
+    .brand-event-2 { font-size: 0.7rem; padding: 0.25rem 0.5rem; letter-spacing: 2px; }
+}
+
+/* ============ HERO ============ */
+.banner-five-area.hero-event {
+    min-height: 100vh;
+    padding: 8rem 0 5rem;
+    display: flex;
+    align-items: center;
+}
+.banner-five-area.hero-event::before {
+    /* la plantilla suele inyectar un filtro fuerte; lo neutralizamos para que el bg del cartel se vea */
+    display: none;
+}
+.hero-event {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+}
+.hero-event-overlay {
+    position: absolute;
+    inset: 0;
+    background:
+        linear-gradient(135deg, rgba(26, 58, 107, 0.75) 0%, rgba(15, 15, 18, 0.85) 50%, rgba(215, 41, 42, 0.65) 100%),
+        rgba(0, 0, 0, 0.55);
+    z-index: 1;
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(2px);
+}
+.banner-five-area.hero-event .container { z-index: 2; }
+
+.hero-title-event {
+    color: #ffffff !important;
+    text-shadow: 0 6px 24px rgba(0,0,0,0.6);
+    line-height: 0.95 !important;
+}
+.hero-sub-event {
+    color: rgba(255,255,255,0.85);
+    font-weight: 500;
+    text-shadow: 0 2px 12px rgba(0,0,0,0.6);
+}
+
+.hero-cartel-wrap {
+    position: relative;
+}
+.hero-cartel-img {
+    max-width: 100%;
+    max-height: 540px;
+    width: auto;
+    height: auto;
+    margin: 0 auto;
+    border-radius: 12px;
+    box-shadow: 0 30px 80px rgba(0,0,0,0.7), 0 0 0 4px rgba(255,255,255,0.06);
+    transform: rotate(-1.5deg);
+    transition: transform .35s ease;
+}
+.hero-cartel-img:hover {
+    transform: rotate(0deg) scale(1.02);
+}
+
+@media (max-width: 991.98px) {
+    .banner-five-area.hero-event { padding: 7rem 0 3rem; min-height: auto; }
+    .hero-cartel-img { max-height: 420px; transform: none; }
+}
+
+/* ============ COUNTDOWN ============ */
+.counter-five-area {
+    background: linear-gradient(180deg, #0F0F12 0%, #15161C 100%);
+}
+.cd-value {
+    display: inline-block;
+    font-family: var(--font-heading, "Oswald", sans-serif);
+    font-weight: 800;
+    color: #ffffff !important;
+    -webkit-text-fill-color: #ffffff;
+    text-shadow: 0 4px 24px rgba(215, 41, 42, 0.35);
+    min-width: 1.5ch;
+    text-align: center;
+}
+.counter-wrapper {
+    text-align: center;
+    padding: 1rem 1.5rem;
+}
+.counter-text {
+    color: #fff !important;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-top: .5rem;
+}
+#countdown.finished .cd-value { color: #D7292A !important; }
+
+/* ============ ABOUT EVENTO (foto banda MONO) ============ */
+.about-event-row { margin-top: 1rem; }
+.about-banda-wrap {
+    position: relative;
+    display: inline-block;
+    padding: 0;
+}
+.about-banda-wrap::before {
+    content: '';
+    position: absolute;
+    inset: -16px -16px 16px 16px;
+    border: 3px solid #D7292A;
+    border-radius: 14px;
+    z-index: -1;
+    opacity: 0.85;
+}
+.about-banda-img {
+    max-width: 100%;
+    max-height: 540px;
+    width: auto;
+    height: auto;
+    border-radius: 14px;
+    background: linear-gradient(160deg, rgba(26, 58, 107, 0.85) 0%, rgba(15, 15, 18, 0.75) 100%);
+    padding: 1rem;
+    box-shadow: 0 24px 60px rgba(0,0,0,0.55);
+    filter: drop-shadow(0 6px 14px rgba(0,0,0,0.3));
+}
+.event-quick-facts {
+    list-style: none;
+    padding: 0;
+    margin: 1.25rem 0 0;
+    display: flex;
+    gap: 1.75rem;
+    flex-wrap: wrap;
+}
+.event-quick-facts li {
+    font-family: var(--font-heading, "Oswald", sans-serif);
+    font-size: 0.9rem;
+    color: rgba(255,255,255,0.7);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    line-height: 1.2;
+}
+.event-quick-facts li span {
+    display: block;
+    font-family: var(--font-heading, "Oswald", sans-serif);
+    font-size: 2.6rem;
+    font-weight: 800;
+    color: #D7292A;
+    line-height: 1;
+    margin-bottom: 0.25rem;
+}
+@media (max-width: 575.98px) {
+    .about-banda-img { max-height: 380px; }
+    .event-quick-facts { gap: 1rem; }
+    .event-quick-facts li span { font-size: 2rem; }
+}
+
+/* ============ SERVICE / INFO CARDS ============ */
+.service-five-area {
+    background: #15161C;
+    background-image:
+        radial-gradient(circle at 20% 30%, rgba(215, 41, 42, 0.08), transparent 40%),
+        radial-gradient(circle at 80% 70%, rgba(26, 58, 107, 0.12), transparent 40%);
+}
+.service-five-card {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 14px;
+    padding: 2.25rem 1.75rem;
+    transition: transform .3s ease, border-color .3s ease, box-shadow .3s ease;
+    position: relative;
+    overflow: hidden;
+}
+.service-five-card:hover {
+    transform: translateY(-8px);
+    border-color: rgba(215, 41, 42, 0.5);
+    box-shadow: 0 24px 60px rgba(0,0,0,0.4), 0 0 0 1px rgba(215, 41, 42, 0.3);
+}
+.service-five-card-icon-glyph {
+    font-size: 4rem;
+    background: linear-gradient(135deg, #D7292A 0%, #1A3A6B 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+}
+.service-five-card-title {
+    font-family: var(--font-heading, "Oswald", sans-serif);
+    font-size: 1.5rem;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: #fff !important;
+    margin: 1rem 0 .5rem;
+}
+.service-five-card-description {
+    color: rgba(255,255,255,0.75) !important;
+    line-height: 1.6;
+}
+.service-five-card-button {
+    display: inline-flex;
+    width: 44px;
+    height: 44px;
+    align-items: center;
+    justify-content: center;
+    background: #D7292A;
+    color: #fff !important;
+    border-radius: 50%;
+    margin-top: 1rem;
+    transition: background .2s ease, transform .2s ease;
+}
+.service-five-card-button:hover {
+    background: #1A3A6B;
+    transform: translateX(4px);
+    color: #fff !important;
+}
+
+/* ============ MARQUEE ============ */
+.maquee-five-area {
+    background: #0F0F12;
+    border-top: 2px solid rgba(215, 41, 42, 0.35);
+    border-bottom: 2px solid rgba(215, 41, 42, 0.35);
+}
+.maquee-title {
+    color: #D7292A !important;
+}
+
+/* ============ LINEUP / EVENT TABS ============ */
+.event-five-top {
+    position: relative;
+}
+.event-five-top::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(15,15,18,0.85) 0%, rgba(15,15,18,0.95) 100%);
+    z-index: 1;
+}
+.event-five-top .container { position: relative; z-index: 2; }
+.event-five-top-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+}
+
+.event-five-area-info-icon {
+    background: #D7292A !important;
+    color: #fff !important;
+}
+.tab-item-image-icon {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: rgba(215, 41, 42, 0.15);
+    border: 2px solid rgba(215, 41, 42, 0.5);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: #D7292A;
+    font-size: 2.5rem;
+    flex-shrink: 0;
+}
+.tab-item-image-headliner {
+    background: linear-gradient(135deg, #D7292A 0%, #1A3A6B 100%);
+    color: #fff;
+    border-color: gold;
+    box-shadow: 0 0 30px rgba(215, 41, 42, 0.4);
+}
+/* Headliner avatar (foto MONO recortada circular) */
+.tab-item-image-headliner-photo {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    overflow: hidden;
+    flex-shrink: 0;
+    border: 3px solid #D7292A;
+    background: linear-gradient(135deg, #1A3A6B 0%, #0F0F12 100%);
+    box-shadow: 0 0 0 2px gold, 0 8px 24px rgba(215, 41, 42, 0.45);
+    position: relative;
+}
+.tab-item-image-headliner-photo img {
+    width: 130%;
+    height: auto;
+    position: absolute;
+    top: 5%;
+    left: 50%;
+    transform: translateX(-50%);
+    object-fit: cover;
+    object-position: center top;
+}
+.star-glow {
+    color: gold;
+    margin-left: 0.5rem;
+    text-shadow: 0 0 12px rgba(255, 215, 0, 0.7);
+}
+.headliner-row {
+    background: linear-gradient(90deg, rgba(215,41,42,0.18) 0%, rgba(215,41,42,0) 60%) !important;
+    border-left: 4px solid #D7292A !important;
+    padding-left: 1rem;
+}
+.headliner-row .tab-item-title {
+    color: #fff !important;
+}
+
+/* ============ VENUE / MAPA ============ */
+.venue-five-area {
+    background: linear-gradient(180deg, #15161C 0%, #0F0F12 100%);
+    background-image: none !important;
+}
+.venue-five-area::before { display: none; }
+.venue-map-wrap {
+    border-radius: 16px;
+    overflow: hidden;
+    border: 3px solid rgba(255,255,255,0.08);
+    box-shadow: 0 24px 60px rgba(0,0,0,0.5);
+    height: 100%;
+    min-height: 500px;
+    background: #000;
+}
+.venue-map-wrap iframe {
+    display: block;
+    width: 100%;
+    height: 100%;
+    min-height: 500px;
+    filter: invert(0) contrast(0.92);
+}
+.venue-info-card {
+    background: linear-gradient(180deg, rgba(215,41,42,0.08) 0%, rgba(26,58,107,0.12) 100%);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 16px;
+    padding: 2rem;
+    height: 100%;
+}
+.venue-info-card .ticket-five-card-name {
+    color: #fff !important;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-family: var(--font-heading, "Oswald", sans-serif);
+    font-weight: 700;
+    border-bottom: 2px solid #D7292A;
+    padding-bottom: .75rem;
+    margin-bottom: 1.5rem;
+    font-size: 1.25rem;
+}
+.venue-transport-list { list-style: none; padding: 0; margin: 0; }
+.venue-transport-list .ticket-five-card-features-item {
+    display: flex !important;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1rem 0;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+.venue-transport-list .ticket-five-card-features-item:last-child { border-bottom: 0; }
+.venue-transport-list .ticket-five-card-features-item-icon {
+    flex-shrink: 0;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: #D7292A;
+    color: #fff !important;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+}
+.venue-transport-list .ticket-five-card-features-item-text {
+    color: rgba(255,255,255,0.75);
+    line-height: 1.5;
+}
+.venue-note {
+    margin-top: 1.25rem;
+    padding: 1rem 1.1rem;
+    background: rgba(215, 41, 42, 0.12);
+    border-left: 3px solid #D7292A;
+    border-radius: 8px;
+    color: rgba(255,255,255,0.85);
+    font-size: 0.92rem;
+}
+.venue-note strong { color: #D7292A; }
+
+/* ============ FAQ ============ */
+.faq-event-area {
+    background: #15161C;
+    background-image:
+        radial-gradient(circle at 80% 20%, rgba(26, 58, 107, 0.15), transparent 40%),
+        radial-gradient(circle at 10% 90%, rgba(215, 41, 42, 0.1), transparent 40%);
+}
+.faq-event-accordion .accordion-item {
+    background: rgba(255,255,255,0.04) !important;
+    border: 1px solid rgba(255,255,255,0.06) !important;
+    border-radius: 12px !important;
+    margin-bottom: 1rem;
+    overflow: hidden;
+}
+.faq-event-accordion .accordion-item:has(.accordion-button:not(.collapsed)) {
+    border-color: rgba(215, 41, 42, 0.45) !important;
+}
+.faq-event-accordion .accordion-button {
+    background: transparent !important;
+    color: #fff !important;
+    font-family: var(--font-heading, "Oswald", sans-serif);
+    font-weight: 600;
+    font-size: 1.05rem;
+    text-transform: none;
+    padding: 1.2rem 1.5rem;
+    box-shadow: none !important;
+    border: 0 !important;
+}
+.faq-event-accordion .accordion-button::after {
+    background: none;
+    content: "+";
+    color: #D7292A;
+    font-size: 1.8rem;
+    font-weight: 400;
+    width: auto;
+    height: auto;
+    transform: none !important;
+    line-height: 1;
+    font-family: var(--font-heading, "Oswald", sans-serif);
+}
+.faq-event-accordion .accordion-button:not(.collapsed)::after {
+    content: "−";
+    transform: none;
+}
+.faq-event-accordion .accordion-button:not(.collapsed) {
+    color: #fff !important;
+    background: rgba(215, 41, 42, 0.1) !important;
+}
+.faq-event-accordion .accordion-button:hover {
+    background: rgba(215, 41, 42, 0.06) !important;
+}
+.faq-event-accordion .accordion-body {
+    color: rgba(255,255,255,0.78);
+    padding: 0 1.5rem 1.3rem;
+    line-height: 1.7;
+}
+
+/* ============ FOOTER ============ */
+.footer-five {
+    background: #0A0A0E !important;
+    background-image:
+        radial-gradient(circle at 80% 20%, rgba(215, 41, 42, 0.08), transparent 50%),
+        radial-gradient(circle at 20% 80%, rgba(26, 58, 107, 0.12), transparent 50%) !important;
+}
+.footer-logo-link {
+    display: inline-block;
+    margin-bottom: 0.5rem;
+}
+.footer-logo-img {
+    height: 88px;
+    width: auto;
+    max-width: 100%;
+    filter: drop-shadow(0 6px 18px rgba(215, 41, 42, 0.35));
+    transition: transform .25s ease;
+}
+.footer-logo-link:hover .footer-logo-img { transform: scale(1.04); }
+.footer-five::before { display: none; }
+.footer-five-bottom { background: rgba(0,0,0,0.4) !important; }
+.footer-quick-links-item:hover {
+    color: #D7292A !important;
+}
+
+/* ============ Helpers / botones globales ============ */
+.theme-btn-main.bg-main-600 {
+    background: #D7292A !important;
+}
+.theme-btn-main.bg-main-three-600 {
+    background: #1A3A6B !important;
+}
+.theme-btn-main.bg-main-600:hover,
+.theme-btn-main.bg-main-three-600:hover {
+    background: #fff !important;
+    color: #0F0F12 !important;
+}
+
+/* Sub-títulos en font-caveat: queremos que se vean cálidos sobre fondo oscuro */
+.section-sub-title.text-main-two-600,
+.section-sub-title.text-main-three-600 {
+    color: #E8B14E !important;
+}
+.banner-sub-title.text-main-two-600 {
+    color: #E8B14E !important;
+}
+
+/* Asegurar texto blanco en títulos principales sobre dark */
+.section-title.text--white,
+.section-title.display-five {
+    color: #ffffff !important;
+}
+
+/* ============ Responsive tweaks ============ */
+@media (max-width: 767.98px) {
+    .hero-title-event { font-size: clamp(1.3rem, 6vw, 1.9rem) !important; }
+    .counter-wrapper { padding: 0.75rem 0.75rem; }
+    .cd-value { font-size: clamp(2.5rem, 12vw, 4rem); }
+    .counter-text { letter-spacing: 1px; font-size: 0.85rem; }
+    .venue-map-wrap, .venue-map-wrap iframe { min-height: 360px; height: 360px; }
+}
+
+/* Print fallback */
+@media print {
+    .preloader, .progress-wrap, #magic-cursor, .cursor, .dot, .mobile-menu, .header { display: none !important; }
+    body.home-five-bg { background: #fff; color: #000; }
+}
