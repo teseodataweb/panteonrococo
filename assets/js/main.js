@@ -109,8 +109,7 @@
     var cdNodes = {
         days:    document.querySelector('[data-cd="days"]'),
         hours:   document.querySelector('[data-cd="hours"]'),
-        minutes: document.querySelector('[data-cd="minutes"]'),
-        seconds: document.querySelector('[data-cd="seconds"]')
+        minutes: document.querySelector('[data-cd="minutes"]')
     };
     function pad(n) { return n < 10 ? '0' + n : '' + n; }
     function updateCountdown() {
@@ -119,7 +118,6 @@
             if (cdNodes.days)    cdNodes.days.textContent    = '00';
             if (cdNodes.hours)   cdNodes.hours.textContent   = '00';
             if (cdNodes.minutes) cdNodes.minutes.textContent = '00';
-            if (cdNodes.seconds) cdNodes.seconds.textContent = '00';
             var el = document.getElementById('countdown');
             if (el) el.classList.add('finished');
             return false;
@@ -127,11 +125,9 @@
         var d = Math.floor(diff / (1000 * 60 * 60 * 24));
         var h = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
         var m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-        var s = Math.floor((diff % (1000 * 60)) / 1000);
         if (cdNodes.days)    cdNodes.days.textContent    = pad(d);
         if (cdNodes.hours)   cdNodes.hours.textContent   = pad(h);
         if (cdNodes.minutes) cdNodes.minutes.textContent = pad(m);
-        if (cdNodes.seconds) cdNodes.seconds.textContent = pad(s);
         return true;
     }
     if (cdNodes.days) {
