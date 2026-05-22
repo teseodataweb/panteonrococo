@@ -933,6 +933,227 @@ body.home-five-bg {
     .legal-content { padding: 2.5rem 0 3.5rem; font-size: 1rem; }
 }
 
+/* ============ ABRIDORES / LINEUP CARDS ============ */
+.abridores-area {
+    background:
+        radial-gradient(circle at 20% 20%, rgba(215, 41, 42, 0.10), transparent 45%),
+        radial-gradient(circle at 80% 80%, rgba(26, 58, 107, 0.14), transparent 45%),
+        linear-gradient(180deg, #0F0F12 0%, #15161C 100%);
+}
+.abridores-grid {
+    --card-radius: 16px;
+}
+.abridor-card {
+    position: relative;
+    background: linear-gradient(180deg, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0.01) 100%);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: var(--card-radius);
+    overflow: hidden;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    transition: transform .35s ease, border-color .35s ease, box-shadow .35s ease;
+    isolation: isolate;
+}
+.abridor-card:hover {
+    transform: translateY(-6px);
+    border-color: rgba(215, 41, 42, 0.55);
+    box-shadow: 0 24px 60px rgba(0,0,0,0.55), 0 0 0 1px rgba(215, 41, 42, 0.25);
+}
+.abridor-card-time {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    z-index: 3;
+    background: #D7292A;
+    color: #fff;
+    font-family: var(--font-heading, "Oswald", sans-serif);
+    font-weight: 400;
+    font-size: 1.05rem;
+    letter-spacing: 0.08em;
+    padding: 0.45rem 0.85rem;
+    border-radius: 6px;
+    box-shadow: 0 8px 24px rgba(215, 41, 42, 0.45);
+    text-transform: uppercase;
+    line-height: 1;
+}
+.abridor-card-photo {
+    position: relative;
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+    background: linear-gradient(160deg, rgba(26, 58, 107, 0.6) 0%, rgba(15, 15, 18, 0.9) 100%);
+}
+.abridor-card-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: transform .6s ease, filter .35s ease;
+    filter: saturate(0.92);
+}
+.abridor-card:hover .abridor-card-photo img {
+    transform: scale(1.06);
+    filter: saturate(1.1);
+}
+.abridor-card-photo::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(15,15,18,0) 40%, rgba(15,15,18,0.85) 100%);
+    pointer-events: none;
+}
+.abridor-card-photo--icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background:
+        radial-gradient(circle at 50% 50%, rgba(215, 41, 42, 0.18), transparent 70%),
+        linear-gradient(160deg, rgba(26, 58, 107, 0.5) 0%, rgba(15, 15, 18, 0.95) 100%);
+}
+.abridor-card-photo--icon i {
+    font-size: clamp(4rem, 8vw, 6rem);
+    color: rgba(255,255,255,0.4);
+    filter: drop-shadow(0 8px 24px rgba(215, 41, 42, 0.5));
+}
+.abridor-card-body {
+    padding: 1.5rem 1.5rem 1.75rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.6rem;
+    flex-grow: 1;
+    position: relative;
+    z-index: 2;
+}
+.abridor-card-logo {
+    height: 64px;
+    max-width: 75%;
+    margin-top: -2.75rem;
+    margin-bottom: 0.5rem;
+    background: rgba(15, 15, 18, 0.88);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    padding: 0.55rem 0.95rem;
+    border-radius: 10px;
+    border: 1px solid rgba(255,255,255,0.1);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 8px 22px rgba(0,0,0,0.45);
+}
+.abridor-card-logo img {
+    max-height: 46px;
+    width: auto;
+    max-width: 100%;
+    object-fit: contain;
+}
+.abridor-card-logo--text span {
+    font-family: var(--font-heading, "Oswald", sans-serif);
+    color: #fff;
+    font-size: 1rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    font-weight: 400;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.6);
+}
+.abridor-card-name {
+    font-family: var(--font-heading, "Oswald", sans-serif);
+    font-weight: 400;
+    font-size: clamp(1.15rem, 1.6vw, 1.4rem);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: #fff;
+    margin: 0;
+    line-height: 1.1;
+}
+.abridor-card-tag {
+    font-family: var(--font-body, "Inter", sans-serif);
+    font-size: 0.85rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.6);
+    margin: 0;
+    font-weight: 500;
+}
+
+/* Headliner card variant — gold glow + accent border */
+.abridor-card--headliner {
+    border-color: rgba(232, 177, 78, 0.6);
+    box-shadow: 0 0 0 1px rgba(232, 177, 78, 0.2), 0 24px 50px rgba(215, 41, 42, 0.25);
+}
+.abridor-card--headliner .abridor-card-time {
+    background: linear-gradient(135deg, #D7292A 0%, #E8B14E 100%);
+    box-shadow: 0 8px 28px rgba(232, 177, 78, 0.45);
+}
+.abridor-card--headliner .abridor-card-logo {
+    border-color: rgba(232, 177, 78, 0.5);
+    box-shadow: 0 8px 22px rgba(232, 177, 78, 0.3);
+}
+.abridor-card--headliner .abridor-card-name {
+    color: #fff;
+    text-shadow: 0 0 18px rgba(232, 177, 78, 0.4);
+}
+.abridor-card--headliner:hover {
+    border-color: #E8B14E;
+    box-shadow: 0 0 0 2px rgba(232, 177, 78, 0.4), 0 30px 70px rgba(215, 41, 42, 0.35);
+}
+
+/* Placeholder card (sin foto/logo oficial) */
+.abridor-card--placeholder .abridor-card-photo {
+    background:
+        radial-gradient(circle at 50% 40%, rgba(215, 41, 42, 0.22), transparent 60%),
+        linear-gradient(180deg, rgba(26, 58, 107, 0.55) 0%, rgba(15, 15, 18, 0.95) 100%);
+}
+
+.abridores-footnote {
+    font-size: 1rem;
+    letter-spacing: 0.05em;
+}
+.abridores-footnote i {
+    color: #D7292A;
+    margin-right: 0.4rem;
+    font-size: 1.15rem;
+    vertical-align: middle;
+}
+
+/* Lineup section — opener avatar (foto recortada circular) */
+.tab-item-image-opener-photo {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    overflow: hidden;
+    flex-shrink: 0;
+    border: 2px solid rgba(215, 41, 42, 0.5);
+    background: linear-gradient(135deg, #1A3A6B 0%, #0F0F12 100%);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.5);
+}
+.tab-item-image-opener-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+}
+
+@media (max-width: 767.98px) {
+    .abridor-card-time {
+        top: 0.75rem;
+        right: 0.75rem;
+        font-size: 0.95rem;
+        padding: 0.35rem 0.7rem;
+    }
+    .abridor-card-body {
+        padding: 1.25rem 1.25rem 1.5rem;
+    }
+    .abridor-card-logo {
+        height: 56px;
+        margin-top: -2.25rem;
+    }
+    .abridor-card-logo img {
+        max-height: 40px;
+    }
+}
+
 /* Print fallback */
 @media print {
     .preloader, .progress-wrap, #magic-cursor, .cursor, .dot, .mobile-menu, .header { display: none !important; }
