@@ -3,12 +3,12 @@
    Override de la plantilla Eventro — paleta y tipografía del cartel
    ========================================================= */
 
-/* === Paleta extraída del cartel ===
-   Rojo principal:    #D7292A → hsl(359, 68%, 51%)
-   Azul secundario:   #1A3A6B → hsl(215, 60%, 26%)
-   Negro carbón:      #0F0F12
-   Blanco textura:    #F5F4F0
-   Acento dorado:     #E8B14E (opcional para acentos cálidos)
+/* === Paleta extraída del cartel oficial Festival Ecos de Oriente ===
+   Guinda institucional: #9F2241 → hsl(344, 65%, 38%) (color oficial Gob México)
+   Vino oscuro:          #5C1A2E → hsl(342, 56%, 23%) (top band "Festivales por la Paz")
+   Crema cálido:         #F0D89C → hsl(43, 76%, 78%)  (papel del lineup)
+   Negro vino:           #0D0D10                       (fondo principal)
+   Marrón profundo:      #2C1419                       (texto sobre crema)
 */
 
 /* === Tipografía alineada al cartel ===
@@ -87,7 +87,7 @@ h1, h2, h3, h4, h5, h6,
     letter-spacing: 0.18em !important;
     text-transform: uppercase !important;
     margin-bottom: 0.75rem !important;
-    color: #E8B14E !important;
+    color: #F0D89C !important;
 }
 
 /* Section sub-titles (caption sobre cada sección): Anton small-caps feel */
@@ -134,35 +134,35 @@ h1, h2, h3, h4, h5, h6,
 }
 
 :root {
-    /* main (rojo del cartel) — reemplaza el magenta original */
-    --main-hex: #D7292A;
-    --main-h: 359;
-    --main-s: 68%;
-    --main-l: 51%;
+    /* main (guinda institucional Gob México — color dominante del cartel) */
+    --main-hex: #9F2241;
+    --main-h: 344;
+    --main-s: 65%;
+    --main-l: 38%;
     --main: var(--main-h) var(--main-s) var(--main-l);
-    --main-gradient: linear-gradient(90deg, #D7292A 0%, #7A1719 100%);
-    --main-gradient-two: linear-gradient(180deg, rgba(215, 41, 42, 0.85) 0%, rgba(215, 41, 42, 0) 100%);
+    --main-gradient: linear-gradient(90deg, #9F2241 0%, #5C1A2E 100%);
+    --main-gradient-two: linear-gradient(180deg, rgba(159, 34, 65, 0.85) 0%, rgba(159, 34, 65, 0) 100%);
 
-    /* main-two (acento cálido — crema/dorado para los subtítulos en font-caveat) */
-    --main-two-hex: #E8B14E;
-    --main-two-h: 41;
-    --main-two-s: 78%;
-    --main-two-l: 61%;
+    /* main-two (crema cálido — reemplaza el dorado, papel del lineup) */
+    --main-two-hex: #F0D89C;
+    --main-two-h: 43;
+    --main-two-s: 76%;
+    --main-two-l: 78%;
     --main-two: var(--main-two-h) var(--main-two-s) var(--main-two-l);
-    --main-two-gradient: linear-gradient(180deg, rgba(232, 177, 78, 0.85) 0%, rgba(232, 177, 78, 0) 100%);
+    --main-two-gradient: linear-gradient(180deg, rgba(240, 216, 156, 0.85) 0%, rgba(240, 216, 156, 0) 100%);
 
-    /* main-three (azul oscuro del cartel) */
-    --main-three-hex: #1A3A6B;
-    --main-three-h: 215;
-    --main-three-s: 60%;
-    --main-three-l: 26%;
+    /* main-three (vino oscuro — top band del cartel) */
+    --main-three-hex: #5C1A2E;
+    --main-three-h: 342;
+    --main-three-s: 56%;
+    --main-three-l: 23%;
     --main-three: var(--main-three-h) var(--main-three-s) var(--main-three-l);
-    --main-three-gradient: linear-gradient(180deg, rgba(26, 58, 107, 0.85) 0%, rgba(26, 58, 107, 0) 100%);
+    --main-three-gradient: linear-gradient(180deg, rgba(92, 26, 46, 0.85) 0%, rgba(92, 26, 46, 0) 100%);
 }
 
-/* Body / fondo general */
+/* Body / fondo general — neutro frío, deja respirar a la guinda como acento */
 body.home-five-bg {
-    background: #0F0F12;
+    background: #0D0D10;
 }
 
 /* ============ NAVBAR / BRAND ============ */
@@ -191,7 +191,7 @@ body.home-five-bg {
     letter-spacing: 3px;
     color: #ffffff;
     padding: 0.35rem 0.7rem;
-    background: rgba(215, 41, 42, 0.85);
+    background: rgba(159, 34, 65, 0.85);
     border-radius: 4px;
     line-height: 1;
 }
@@ -227,8 +227,8 @@ body.home-five-bg {
     position: absolute;
     inset: 0;
     background:
-        linear-gradient(135deg, rgba(26, 58, 107, 0.75) 0%, rgba(15, 15, 18, 0.85) 50%, rgba(215, 41, 42, 0.65) 100%),
-        rgba(0, 0, 0, 0.55);
+        linear-gradient(135deg, rgba(13, 13, 16, 0.85) 0%, rgba(13, 13, 16, 0.78) 50%, rgba(159, 34, 65, 0.35) 100%),
+        rgba(0, 0, 0, 0.45);
     z-index: 1;
     backdrop-filter: blur(2px);
     -webkit-backdrop-filter: blur(2px);
@@ -271,7 +271,7 @@ body.home-five-bg {
 
 /* ============ COUNTDOWN ============ */
 .counter-five-area {
-    background: linear-gradient(180deg, #0F0F12 0%, #15161C 100%);
+    background: linear-gradient(180deg, #0D0D10 0%, #181820 100%);
 }
 .cd-value {
     display: inline-block;
@@ -279,7 +279,7 @@ body.home-five-bg {
     font-weight: 800;
     color: #ffffff !important;
     -webkit-text-fill-color: #ffffff;
-    text-shadow: 0 4px 24px rgba(215, 41, 42, 0.35);
+    text-shadow: 0 4px 24px rgba(159, 34, 65, 0.35);
     min-width: 1.5ch;
     text-align: center;
 }
@@ -295,7 +295,7 @@ body.home-five-bg {
     margin-top: .5rem;
     margin-left: 0 !important;
 }
-#countdown.finished .cd-value { color: #D7292A !important; }
+#countdown.finished .cd-value { color: #9F2241 !important; }
 
 /* ============ ABOUT EVENTO (foto banda MONO) ============ */
 .about-event-row { margin-top: 1rem; }
@@ -308,7 +308,7 @@ body.home-five-bg {
     content: '';
     position: absolute;
     inset: -16px -16px 16px 16px;
-    border: 3px solid #D7292A;
+    border: 3px solid #9F2241;
     border-radius: 14px;
     z-index: -1;
     opacity: 0.85;
@@ -319,7 +319,7 @@ body.home-five-bg {
     width: auto;
     height: auto;
     border-radius: 14px;
-    background: linear-gradient(160deg, rgba(26, 58, 107, 0.85) 0%, rgba(15, 15, 18, 0.75) 100%);
+    background: linear-gradient(160deg, rgba(92, 26, 46, 0.85) 0%, rgba(13, 13, 16, 0.75) 100%);
     padding: 1rem;
     box-shadow: 0 24px 60px rgba(0,0,0,0.55);
     filter: drop-shadow(0 6px 14px rgba(0,0,0,0.3));
@@ -345,7 +345,7 @@ body.home-five-bg {
     font-family: var(--font-heading, "Oswald", sans-serif);
     font-size: 2.6rem;
     font-weight: 800;
-    color: #D7292A;
+    color: #9F2241;
     line-height: 1;
     margin-bottom: 0.25rem;
 }
@@ -357,10 +357,7 @@ body.home-five-bg {
 
 /* ============ SERVICE / INFO CARDS ============ */
 .service-five-area {
-    background: #15161C;
-    background-image:
-        radial-gradient(circle at 20% 30%, rgba(215, 41, 42, 0.08), transparent 40%),
-        radial-gradient(circle at 80% 70%, rgba(26, 58, 107, 0.12), transparent 40%);
+    background: #181820;
 }
 .service-five-card {
     background: rgba(255,255,255,0.03);
@@ -378,13 +375,13 @@ body.home-five-bg {
 }
 .service-five-card:hover {
     transform: translateY(-8px);
-    border-color: rgba(215, 41, 42, 0.5);
-    box-shadow: 0 24px 60px rgba(0,0,0,0.4), 0 0 0 1px rgba(215, 41, 42, 0.3);
+    border-color: rgba(159, 34, 65, 0.5);
+    box-shadow: 0 24px 60px rgba(0,0,0,0.4), 0 0 0 1px rgba(159, 34, 65, 0.3);
     background: rgba(255,255,255,0.03);
 }
 .service-five-card-icon-glyph {
     font-size: clamp(3.5rem, 7vw, 5rem);
-    background: linear-gradient(135deg, #D7292A 0%, #1A3A6B 100%);
+    background: linear-gradient(135deg, #9F2241 0%, #5C1A2E 100%);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -418,7 +415,7 @@ body.home-five-bg {
     height: 52px !important;
     align-items: center;
     justify-content: center;
-    background: #D7292A !important;
+    background: #9F2241 !important;
     color: #fff !important;
     border-radius: 50%;
     margin: .25rem auto 0 !important;
@@ -426,7 +423,7 @@ body.home-five-bg {
     transition: background .2s ease, transform .2s ease;
 }
 .service-five-card-button:hover {
-    background: #1A3A6B !important;
+    background: #5C1A2E !important;
     transform: scale(1.08) !important;
     color: #fff !important;
 }
@@ -441,12 +438,12 @@ body.home-five-bg {
 
 /* ============ MARQUEE ============ */
 .maquee-five-area {
-    background: #0F0F12;
-    border-top: 2px solid rgba(215, 41, 42, 0.35);
-    border-bottom: 2px solid rgba(215, 41, 42, 0.35);
+    background: #0D0D10;
+    border-top: 2px solid rgba(159, 34, 65, 0.35);
+    border-bottom: 2px solid rgba(159, 34, 65, 0.35);
 }
 .maquee-title {
-    color: #D7292A !important;
+    color: #9F2241 !important;
 }
 
 /* ============ LINEUP / EVENT TABS ============ */
@@ -468,27 +465,27 @@ body.home-five-bg {
 }
 
 .event-five-area-info-icon {
-    background: #D7292A !important;
+    background: #9F2241 !important;
     color: #fff !important;
 }
 .tab-item-image-icon {
     width: 80px;
     height: 80px;
     border-radius: 50%;
-    background: rgba(215, 41, 42, 0.15);
-    border: 2px solid rgba(215, 41, 42, 0.5);
+    background: rgba(159, 34, 65, 0.15);
+    border: 2px solid rgba(159, 34, 65, 0.5);
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    color: #D7292A;
+    color: #9F2241;
     font-size: 2.5rem;
     flex-shrink: 0;
 }
 .tab-item-image-headliner {
-    background: linear-gradient(135deg, #D7292A 0%, #1A3A6B 100%);
+    background: linear-gradient(135deg, #9F2241 0%, #5C1A2E 100%);
     color: #fff;
-    border-color: gold;
-    box-shadow: 0 0 30px rgba(215, 41, 42, 0.4);
+    border-color: #F0D89C;
+    box-shadow: 0 0 30px rgba(159, 34, 65, 0.4);
 }
 /* Headliner avatar (foto MONO recortada circular) */
 .tab-item-image-headliner-photo {
@@ -497,9 +494,9 @@ body.home-five-bg {
     border-radius: 50%;
     overflow: hidden;
     flex-shrink: 0;
-    border: 3px solid #D7292A;
-    background: linear-gradient(135deg, #1A3A6B 0%, #0F0F12 100%);
-    box-shadow: 0 0 0 2px gold, 0 8px 24px rgba(215, 41, 42, 0.45);
+    border: 3px solid #9F2241;
+    background: linear-gradient(135deg, #5C1A2E 0%, #0D0D10 100%);
+    box-shadow: 0 0 0 2px #F0D89C, 0 8px 24px rgba(159, 34, 65, 0.45);
     position: relative;
 }
 .tab-item-image-headliner-photo img {
@@ -513,13 +510,13 @@ body.home-five-bg {
     object-position: center top;
 }
 .star-glow {
-    color: gold;
+    color: #F0D89C;
     margin-left: 0.5rem;
-    text-shadow: 0 0 12px rgba(255, 215, 0, 0.7);
+    text-shadow: 0 0 12px rgba(240, 216, 156, 0.7);
 }
 .headliner-row {
     background: linear-gradient(90deg, rgba(215,41,42,0.18) 0%, rgba(215,41,42,0) 60%) !important;
-    border-left: 4px solid #D7292A !important;
+    border-left: 4px solid #9F2241 !important;
     padding-left: 1rem;
 }
 .headliner-row .tab-item-title {
@@ -528,7 +525,7 @@ body.home-five-bg {
 
 /* ============ VENUE / MAPA ============ */
 .venue-five-area {
-    background: linear-gradient(180deg, #15161C 0%, #0F0F12 100%);
+    background: linear-gradient(180deg, #181820 0%, #0D0D10 100%);
     background-image: none !important;
 }
 .venue-five-area::before { display: none; }
@@ -561,7 +558,7 @@ body.home-five-bg {
     letter-spacing: 2px;
     font-family: var(--font-heading, "Oswald", sans-serif);
     font-weight: 700;
-    border-bottom: 2px solid #D7292A;
+    border-bottom: 2px solid #9F2241;
     padding-bottom: .75rem;
     margin-bottom: 1.5rem;
     font-size: 1.25rem;
@@ -580,7 +577,7 @@ body.home-five-bg {
     width: 44px;
     height: 44px;
     border-radius: 50%;
-    background: #D7292A;
+    background: #9F2241;
     color: #fff !important;
     display: inline-flex;
     align-items: center;
@@ -594,20 +591,17 @@ body.home-five-bg {
 .venue-note {
     margin-top: 1.25rem;
     padding: 1rem 1.1rem;
-    background: rgba(215, 41, 42, 0.12);
-    border-left: 3px solid #D7292A;
+    background: rgba(159, 34, 65, 0.12);
+    border-left: 3px solid #9F2241;
     border-radius: 8px;
     color: rgba(255,255,255,0.85);
     font-size: 0.92rem;
 }
-.venue-note strong { color: #D7292A; }
+.venue-note strong { color: #9F2241; }
 
 /* ============ FAQ ============ */
 .faq-event-area {
-    background: #15161C;
-    background-image:
-        radial-gradient(circle at 80% 20%, rgba(26, 58, 107, 0.15), transparent 40%),
-        radial-gradient(circle at 10% 90%, rgba(215, 41, 42, 0.1), transparent 40%);
+    background: #181820;
 }
 .faq-event-accordion .accordion-item {
     background: rgba(255,255,255,0.04) !important;
@@ -617,7 +611,7 @@ body.home-five-bg {
     overflow: hidden;
 }
 .faq-event-accordion .accordion-item:has(.accordion-button:not(.collapsed)) {
-    border-color: rgba(215, 41, 42, 0.45) !important;
+    border-color: rgba(159, 34, 65, 0.45) !important;
 }
 .faq-event-accordion .accordion-button {
     background: transparent !important;
@@ -633,7 +627,7 @@ body.home-five-bg {
 .faq-event-accordion .accordion-button::after {
     background: none;
     content: "+";
-    color: #D7292A;
+    color: #9F2241;
     font-size: 1.8rem;
     font-weight: 400;
     width: auto;
@@ -648,10 +642,10 @@ body.home-five-bg {
 }
 .faq-event-accordion .accordion-button:not(.collapsed) {
     color: #fff !important;
-    background: rgba(215, 41, 42, 0.1) !important;
+    background: rgba(159, 34, 65, 0.1) !important;
 }
 .faq-event-accordion .accordion-button:hover {
-    background: rgba(215, 41, 42, 0.06) !important;
+    background: rgba(159, 34, 65, 0.06) !important;
 }
 .faq-event-accordion .accordion-body {
     color: rgba(255,255,255,0.78);
@@ -662,9 +656,7 @@ body.home-five-bg {
 /* ============ FOOTER ============ */
 .footer-five {
     background: #0A0A0E !important;
-    background-image:
-        radial-gradient(circle at 80% 20%, rgba(215, 41, 42, 0.08), transparent 50%),
-        radial-gradient(circle at 20% 80%, rgba(26, 58, 107, 0.12), transparent 50%) !important;
+    background-image: none !important;
 }
 .footer-logo-link {
     display: inline-block;
@@ -674,36 +666,36 @@ body.home-five-bg {
     height: 88px;
     width: auto;
     max-width: 100%;
-    filter: drop-shadow(0 6px 18px rgba(215, 41, 42, 0.35));
+    filter: drop-shadow(0 6px 18px rgba(159, 34, 65, 0.35));
     transition: transform .25s ease;
 }
 .footer-logo-link:hover .footer-logo-img { transform: scale(1.04); }
 .footer-five::before { display: none; }
 .footer-five-bottom { background: rgba(0,0,0,0.4) !important; }
 .footer-quick-links-item:hover {
-    color: #D7292A !important;
+    color: #9F2241 !important;
 }
 
 /* ============ Helpers / botones globales ============ */
 .theme-btn-main.bg-main-600 {
-    background: #D7292A !important;
+    background: #9F2241 !important;
 }
 .theme-btn-main.bg-main-three-600 {
-    background: #1A3A6B !important;
+    background: #5C1A2E !important;
 }
 .theme-btn-main.bg-main-600:hover,
 .theme-btn-main.bg-main-three-600:hover {
     background: #fff !important;
-    color: #0F0F12 !important;
+    color: #0D0D10 !important;
 }
 
 /* Sub-títulos en font-caveat: queremos que se vean cálidos sobre fondo oscuro */
 .section-sub-title.text-main-two-600,
 .section-sub-title.text-main-three-600 {
-    color: #E8B14E !important;
+    color: #F0D89C !important;
 }
 .banner-sub-title.text-main-two-600 {
-    color: #E8B14E !important;
+    color: #F0D89C !important;
 }
 
 /* Asegurar texto blanco en títulos principales sobre dark */
@@ -723,10 +715,7 @@ body.home-five-bg {
 
 /* ============ REGISTRO / FORMULARIO ============ */
 .register-event-area {
-    background:
-        radial-gradient(circle at 15% 20%, rgba(215, 41, 42, 0.08), transparent 45%),
-        radial-gradient(circle at 85% 80%, rgba(26, 58, 107, 0.12), transparent 45%),
-        linear-gradient(180deg, #15161C 0%, #0F0F12 100%);
+    background: linear-gradient(180deg, #181820 0%, #0D0D10 100%);
 }
 .event-register-form {
     background: rgba(255,255,255,0.03);
@@ -759,9 +748,9 @@ body.home-five-bg {
 .form-control-event::placeholder { color: rgba(255,255,255,0.4); }
 .form-control-event:focus {
     outline: none;
-    border-color: #D7292A;
+    border-color: #9F2241;
     background: rgba(255,255,255,0.06);
-    box-shadow: 0 0 0 3px rgba(215, 41, 42, 0.18);
+    box-shadow: 0 0 0 3px rgba(159, 34, 65, 0.18);
 }
 .form-control-event.is-invalid,
 .event-register-form.was-validated .form-control-event:invalid {
@@ -782,12 +771,12 @@ body.home-five-bg {
     margin-top: 4px;
     width: 18px;
     height: 18px;
-    accent-color: #D7292A;
+    accent-color: #9F2241;
     flex-shrink: 0;
     cursor: pointer;
 }
 .form-link {
-    color: #D7292A;
+    color: #9F2241;
     text-decoration: underline;
 }
 .form-link:hover { color: #fff; }
@@ -827,7 +816,7 @@ body.home-five-bg {
     font-weight: 500;
 }
 .powered-by-link {
-    color: #D7292A;
+    color: #9F2241;
     text-decoration: none;
     font-weight: 700;
     margin-left: 0.35rem;
@@ -837,10 +826,7 @@ body.home-five-bg {
 
 /* ============ PÁGINAS LEGALES (privacidad, términos) ============ */
 .legal-page {
-    background:
-        radial-gradient(circle at 15% 10%, rgba(215, 41, 42, 0.06), transparent 45%),
-        radial-gradient(circle at 85% 90%, rgba(26, 58, 107, 0.08), transparent 45%),
-        #0F0F12;
+    background: #0D0D10;
     min-height: 100vh;
 }
 .legal-header {
@@ -873,7 +859,7 @@ body.home-five-bg {
     letter-spacing: 1px;
 }
 .legal-content .legal-subtitle {
-    color: #D7292A;
+    color: #9F2241;
     font-family: var(--font-heading, "Oswald", sans-serif);
     text-transform: uppercase;
     letter-spacing: 2px;
@@ -895,7 +881,7 @@ body.home-five-bg {
     margin-top: 2.5rem;
     margin-bottom: 1rem;
     padding-bottom: 0.5rem;
-    border-bottom: 2px solid rgba(215, 41, 42, 0.4);
+    border-bottom: 2px solid rgba(159, 34, 65, 0.4);
 }
 .legal-content h3 {
     color: #fff;
@@ -911,7 +897,7 @@ body.home-five-bg {
 }
 .legal-content li { margin-bottom: 0.5rem; }
 .legal-content a {
-    color: #D7292A;
+    color: #9F2241;
     text-decoration: underline;
 }
 .legal-content a:hover { color: #fff; }
@@ -935,10 +921,7 @@ body.home-five-bg {
 
 /* ============ ABRIDORES / LINEUP CARDS ============ */
 .abridores-area {
-    background:
-        radial-gradient(circle at 20% 20%, rgba(215, 41, 42, 0.10), transparent 45%),
-        radial-gradient(circle at 80% 80%, rgba(26, 58, 107, 0.14), transparent 45%),
-        linear-gradient(180deg, #0F0F12 0%, #15161C 100%);
+    background: linear-gradient(180deg, #0D0D10 0%, #181820 100%);
 }
 .abridores-grid {
     --card-radius: 16px;
@@ -969,7 +952,7 @@ body.home-five-bg {
 }
 .cartel-oficial-img-link:hover {
     transform: translateY(-3px);
-    box-shadow: 0 24px 50px rgba(215, 41, 42, 0.25);
+    box-shadow: 0 24px 50px rgba(159, 34, 65, 0.25);
 }
 .cartel-oficial-img {
     width: 100%;
@@ -1021,15 +1004,15 @@ body.home-five-bg {
 }
 .abridor-card:hover {
     transform: translateY(-6px);
-    border-color: rgba(215, 41, 42, 0.55);
-    box-shadow: 0 24px 60px rgba(0,0,0,0.55), 0 0 0 1px rgba(215, 41, 42, 0.25);
+    border-color: rgba(159, 34, 65, 0.55);
+    box-shadow: 0 24px 60px rgba(0,0,0,0.55), 0 0 0 1px rgba(159, 34, 65, 0.25);
 }
 .abridor-card-time {
     position: absolute;
     top: 1rem;
     right: 1rem;
     z-index: 3;
-    background: #D7292A;
+    background: #9F2241;
     color: #fff;
     font-family: var(--font-heading, "Oswald", sans-serif);
     font-weight: 400;
@@ -1037,7 +1020,7 @@ body.home-five-bg {
     letter-spacing: 0.08em;
     padding: 0.45rem 0.85rem;
     border-radius: 6px;
-    box-shadow: 0 8px 24px rgba(215, 41, 42, 0.45);
+    box-shadow: 0 8px 24px rgba(159, 34, 65, 0.45);
     text-transform: uppercase;
     line-height: 1;
 }
@@ -1045,7 +1028,7 @@ body.home-five-bg {
     position: relative;
     aspect-ratio: 4 / 3;
     overflow: hidden;
-    background: linear-gradient(160deg, rgba(26, 58, 107, 0.6) 0%, rgba(15, 15, 18, 0.9) 100%);
+    background: linear-gradient(160deg, rgba(92, 26, 46, 0.6) 0%, rgba(13, 13, 16, 0.9) 100%);
 }
 .abridor-card-photo img {
     width: 100%;
@@ -1071,13 +1054,13 @@ body.home-five-bg {
     align-items: center;
     justify-content: center;
     background:
-        radial-gradient(circle at 50% 50%, rgba(215, 41, 42, 0.18), transparent 70%),
-        linear-gradient(160deg, rgba(26, 58, 107, 0.5) 0%, rgba(15, 15, 18, 0.95) 100%);
+        radial-gradient(circle at 50% 50%, rgba(159, 34, 65, 0.18), transparent 70%),
+        linear-gradient(160deg, rgba(92, 26, 46, 0.5) 0%, rgba(13, 13, 16, 0.95) 100%);
 }
 .abridor-card-photo--icon i {
     font-size: clamp(4rem, 8vw, 6rem);
     color: rgba(255,255,255,0.4);
-    filter: drop-shadow(0 8px 24px rgba(215, 41, 42, 0.5));
+    filter: drop-shadow(0 8px 24px rgba(159, 34, 65, 0.5));
 }
 .abridor-card-body {
     padding: 1.5rem 1.5rem 1.75rem;
@@ -1094,7 +1077,7 @@ body.home-five-bg {
     max-width: 75%;
     margin-top: -2.75rem;
     margin-bottom: 0.5rem;
-    background: rgba(15, 15, 18, 0.88);
+    background: rgba(13, 13, 16, 0.88);
     backdrop-filter: blur(6px);
     -webkit-backdrop-filter: blur(6px);
     padding: 0.55rem 0.95rem;
@@ -1166,30 +1149,30 @@ body.home-five-bg {
 }
 .abridor-card-social:hover,
 .abridor-card-social:focus-visible {
-    background: rgba(215, 41, 42, 0.18);
-    border-color: rgba(215, 41, 42, 0.6);
+    background: rgba(159, 34, 65, 0.18);
+    border-color: rgba(159, 34, 65, 0.6);
     color: #fff;
     transform: translateY(-1px);
     outline: none;
 }
 .abridor-card--headliner .abridor-card-social:hover,
 .abridor-card--headliner .abridor-card-social:focus-visible {
-    background: rgba(232, 177, 78, 0.18);
-    border-color: rgba(232, 177, 78, 0.6);
+    background: rgba(240, 216, 156, 0.18);
+    border-color: rgba(240, 216, 156, 0.6);
 }
 
-/* Headliner card variant — gold glow + accent border */
+/* Headliner card variant — cream glow + accent border */
 .abridor-card--headliner {
-    border-color: rgba(232, 177, 78, 0.6);
-    box-shadow: 0 0 0 1px rgba(232, 177, 78, 0.2), 0 24px 50px rgba(215, 41, 42, 0.25);
+    border-color: rgba(240, 216, 156, 0.6);
+    box-shadow: 0 0 0 1px rgba(240, 216, 156, 0.2), 0 24px 50px rgba(159, 34, 65, 0.25);
 }
 .abridor-card--headliner .abridor-card-time {
-    background: linear-gradient(135deg, #D7292A 0%, #E8B14E 100%);
-    box-shadow: 0 8px 28px rgba(232, 177, 78, 0.45);
+    background: linear-gradient(135deg, #9F2241 0%, #F0D89C 100%);
+    box-shadow: 0 8px 28px rgba(240, 216, 156, 0.45);
 }
 .abridor-card--headliner .abridor-card-logo {
-    border-color: rgba(232, 177, 78, 0.5);
-    box-shadow: 0 8px 22px rgba(232, 177, 78, 0.3);
+    border-color: rgba(240, 216, 156, 0.5);
+    box-shadow: 0 8px 22px rgba(240, 216, 156, 0.3);
 }
 
 /* Wide variant: photo izquierda, body derecha (para Panteón a fila completa) */
@@ -1218,18 +1201,18 @@ body.home-five-bg {
 }
 .abridor-card--headliner .abridor-card-name {
     color: #fff;
-    text-shadow: 0 0 18px rgba(232, 177, 78, 0.4);
+    text-shadow: 0 0 18px rgba(240, 216, 156, 0.4);
 }
 .abridor-card--headliner:hover {
-    border-color: #E8B14E;
-    box-shadow: 0 0 0 2px rgba(232, 177, 78, 0.4), 0 30px 70px rgba(215, 41, 42, 0.35);
+    border-color: #F0D89C;
+    box-shadow: 0 0 0 2px rgba(240, 216, 156, 0.4), 0 30px 70px rgba(159, 34, 65, 0.35);
 }
 
 /* Placeholder card (sin foto/logo oficial) */
 .abridor-card--placeholder .abridor-card-photo {
     background:
-        radial-gradient(circle at 50% 40%, rgba(215, 41, 42, 0.22), transparent 60%),
-        linear-gradient(180deg, rgba(26, 58, 107, 0.55) 0%, rgba(15, 15, 18, 0.95) 100%);
+        radial-gradient(circle at 50% 40%, rgba(159, 34, 65, 0.22), transparent 60%),
+        linear-gradient(180deg, rgba(92, 26, 46, 0.55) 0%, rgba(13, 13, 16, 0.95) 100%);
 }
 
 .abridores-footnote {
@@ -1237,7 +1220,7 @@ body.home-five-bg {
     letter-spacing: 0.05em;
 }
 .abridores-footnote i {
-    color: #D7292A;
+    color: #9F2241;
     margin-right: 0.4rem;
     font-size: 1.15rem;
     vertical-align: middle;
@@ -1250,8 +1233,8 @@ body.home-five-bg {
     border-radius: 50%;
     overflow: hidden;
     flex-shrink: 0;
-    border: 2px solid rgba(215, 41, 42, 0.5);
-    background: linear-gradient(135deg, #1A3A6B 0%, #0F0F12 100%);
+    border: 2px solid rgba(159, 34, 65, 0.5);
+    background: linear-gradient(135deg, #5C1A2E 0%, #0D0D10 100%);
     box-shadow: 0 6px 18px rgba(0,0,0,0.5);
 }
 .tab-item-image-opener-photo img {
