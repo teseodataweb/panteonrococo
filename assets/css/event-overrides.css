@@ -943,6 +943,70 @@ body.home-five-bg {
 .abridores-grid {
     --card-radius: 16px;
 }
+
+/* Cartel oficial column (left sticky on desktop) */
+.cartel-oficial-card {
+    background: linear-gradient(180deg, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0.01) 100%);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 18px;
+    overflow: hidden;
+    padding: 1.25rem 1.25rem 1.5rem;
+    box-shadow: 0 24px 60px rgba(0,0,0,0.45);
+}
+@media (min-width: 992px) {
+    .cartel-oficial-card {
+        position: sticky;
+        top: 100px;
+    }
+}
+.cartel-oficial-img-link {
+    display: block;
+    border-radius: 12px;
+    overflow: hidden;
+    line-height: 0;
+    transition: transform .35s ease, box-shadow .35s ease;
+    box-shadow: 0 16px 40px rgba(0,0,0,0.55);
+}
+.cartel-oficial-img-link:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 24px 50px rgba(215, 41, 42, 0.25);
+}
+.cartel-oficial-img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+.cartel-oficial-body {
+    padding: 1.1rem 0.25rem 0;
+    text-align: center;
+}
+.cartel-oficial-title {
+    font-family: var(--font-heading, "Oswald", sans-serif);
+    font-weight: 400;
+    font-size: 1.25rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #fff;
+    margin: 0 0 0.25rem;
+}
+.cartel-oficial-sub {
+    color: rgba(255,255,255,0.6);
+    font-size: 0.85rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin: 0 0 1.1rem;
+}
+.cartel-oficial-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    justify-content: center;
+}
+.cartel-action-btn {
+    flex: 1 1 140px;
+    min-width: 0;
+    justify-content: center;
+}
 .abridor-card {
     position: relative;
     background: linear-gradient(180deg, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0.01) 100%);
@@ -1075,6 +1139,44 @@ body.home-five-bg {
     margin: 0;
     font-weight: 500;
 }
+.abridor-card-social {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    margin-top: 0.85rem;
+    padding: 0.4rem 0.85rem 0.4rem 0.7rem;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 999px;
+    color: rgba(255,255,255,0.85);
+    text-decoration: none;
+    font-family: var(--font-body, "Inter", sans-serif);
+    font-size: 0.82rem;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    transition: background .25s ease, border-color .25s ease, color .25s ease, transform .25s ease;
+}
+.abridor-card-social i {
+    font-size: 1rem;
+    background: linear-gradient(45deg, #F58529 0%, #DD2A7B 45%, #8134AF 75%, #515BD4 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    line-height: 1;
+}
+.abridor-card-social:hover,
+.abridor-card-social:focus-visible {
+    background: rgba(215, 41, 42, 0.18);
+    border-color: rgba(215, 41, 42, 0.6);
+    color: #fff;
+    transform: translateY(-1px);
+    outline: none;
+}
+.abridor-card--headliner .abridor-card-social:hover,
+.abridor-card--headliner .abridor-card-social:focus-visible {
+    background: rgba(232, 177, 78, 0.18);
+    border-color: rgba(232, 177, 78, 0.6);
+}
 
 /* Headliner card variant — gold glow + accent border */
 .abridor-card--headliner {
@@ -1088,6 +1190,31 @@ body.home-five-bg {
 .abridor-card--headliner .abridor-card-logo {
     border-color: rgba(232, 177, 78, 0.5);
     box-shadow: 0 8px 22px rgba(232, 177, 78, 0.3);
+}
+
+/* Wide variant: photo izquierda, body derecha (para Panteón a fila completa) */
+@media (min-width: 576px) {
+    .abridor-card--wide {
+        flex-direction: row;
+    }
+    .abridor-card--wide .abridor-card-photo {
+        flex: 0 0 50%;
+        max-width: 50%;
+        aspect-ratio: auto;
+        height: auto;
+    }
+    .abridor-card--wide .abridor-card-photo::after {
+        background: linear-gradient(90deg, rgba(15,15,18,0) 50%, rgba(15,15,18,0.85) 100%);
+    }
+    .abridor-card--wide .abridor-card-body {
+        flex: 1 1 50%;
+        padding: 1.75rem 1.75rem 1.75rem 1.25rem;
+        justify-content: center;
+    }
+    .abridor-card--wide .abridor-card-logo {
+        margin-top: 0;
+        margin-bottom: 0.75rem;
+    }
 }
 .abridor-card--headliner .abridor-card-name {
     color: #fff;
